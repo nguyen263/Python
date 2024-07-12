@@ -6,3 +6,4 @@ The following is a list of Python projects I have created on my own time in orde
 
 3. Guessing the Number - Attempt to guess a correct number from 1-10 in ten tries will determine whether you win or not.
 
+4. Netflix Data Analysis - I analyze my Netflix data and provide answers to three key questions regarding the duration of TV shows I have watched.
