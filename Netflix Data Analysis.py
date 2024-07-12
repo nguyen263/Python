@@ -31,9 +31,12 @@ print("The number of columns is",len(data.columns),", and they are",
 print(new_df.head(5))
 #Which TV show do I watch the longest?
 print(data.iloc[data['Duration'].idxmax()])
+#Monk 1 days 11:19:31
 #Which show do I watch the shortest?
 print(data.iloc[data['Duration'].idxmin()])
+#Blue Period 0 days 00:00:02
 for i in data['Brief Title']:
     print(i)
 #What is the duration of my favorite show, "Dead Boy Detectives"?
 print(data[data['Brief Title'].str.contains('Dead Boy Detectives')])
+#0 days 03:26:27
