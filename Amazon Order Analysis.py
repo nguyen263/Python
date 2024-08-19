@@ -4,7 +4,7 @@ import pandas as pd
 df=pd.read_csv('Retail.OrderHistory.1.csv')
 print(df['Product Name'].head())
 df=df.drop(df[df['Shipping Address']==
-              'Toan Tran 3104 W HENRY AVE TAMPA FL 33614-5925 United States'].index)
+              [redact]].index)
 print(df['Product Name'].head())
 print(list(df.columns))
 col_drop=['Website', 'Order ID', 'Order Date', 'Purchase Order Number',
