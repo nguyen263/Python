@@ -11,9 +11,9 @@ print(netflix_df.head(3))
 ###What was the most frequent movie duration in the 1990s? Save an approximate answer as an integer called duration (use 1990 as the decade's start year).
 #make sure the data is filtered to "Movie" and in the 1990s
 filtered=netflix_df[netflix_df['type']=='Movie']
-print(filtered)
+#print(filtered)
 duration=filtered['release_year']
-print(duration)
+#print(duration)
 import numpy as np
 between=np.logical_and(duration>=1990,duration<2000)
 filtered=filtered[between]
