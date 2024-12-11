@@ -39,6 +39,6 @@ for index,row in filtered.iterrows():
         short_movie_count=short_movie_count+1
     else:
         short_movie_count=short_movie_count
-print(short_movie_count)
+    print(short_movie_count)
 #answer
 short_movie_count=7
