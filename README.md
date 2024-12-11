@@ -9,3 +9,5 @@ The following is a list of Python projects I have created on my own time in orde
 4. Netflix Data Analysis - I analyze my Netflix data and provide answers to three key questions regarding the duration of TV shows I have watched.
 
 5. Amazon Order Analysis — I analyze my Amazon data and provide answers to three critical questions about my purchases.
+
+6. Investigating Netflix Movies - A bonus project that I found on DataCamp to apply what I learned
