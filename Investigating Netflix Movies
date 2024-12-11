@@ -17,7 +17,7 @@ print(duration)
 import numpy as np
 between=np.logical_and(duration>=1990,duration<2000)
 filtered=filtered[between]
-print(filtered)
+print(filtered.head(4))
 duration=filtered
 #plot the graph
 plt.hist(duration['duration'])
