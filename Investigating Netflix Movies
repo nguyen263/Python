@@ -1,0 +1,40 @@
+# Importing pandas and matplotlib
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read in the Netflix CSV as a DataFrame
+netflix_df = pd.read_csv("netflix_data.csv")
+#see the whole data
+pd.set_option('display.max_columns', None)
+print(netflix_df.head(3))
+
+###What was the most frequent movie duration in the 1990s? Save an approximate answer as an integer called duration (use 1990 as the decade's start year).
+#make sure the data is filtered to "Movie" and in the 1990s
+filtered=netflix_df[netflix_df['type']=='Movie']
+print(filtered)
+duration=filtered['release_year']
+print(duration)
+import numpy as np
+between=np.logical_and(duration>=1990,duration<2000)
+filtered=filtered[between]
+print(filtered)
+duration=filtered
+#plot the graph
+plt.hist(duration['duration'])
+plt.title('The Average Duration in the 1990s')
+plt.xlabel('Duration')
+plt.ylabel('Number of Movies')
+plt.show()
+
+###A movie is considered short if it is less than 90 minutes. Count the number of short action movies released in the 1990s and save this integer as short_movie_count.
+filtered=filtered[filtered['genre']=='Action']
+print(filtered)
+#set the counter to 0
+short_movie_count=0
+#make a loop to count how many movies that are less than 90 minutes
+for index,row in filtered.iterrows():
+    if row['duration']<90:
+        short_movie_count=short_movie_count+1
+    else:
+        short_movie_count=short_movie_count
+print(short_movie_count)
