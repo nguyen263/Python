@@ -25,7 +25,8 @@ plt.title('The Average Duration in the 1990s')
 plt.xlabel('Duration')
 plt.ylabel('Number of Movies')
 plt.show()
-#I think the most frequent movie duration in the 1990s was around 100 minutes
+#answer
+duration=100
 
 ###A movie is considered short if it is less than 90 minutes. Count the number of short action movies released in the 1990s and save this integer as short_movie_count.
 filtered=filtered[filtered['genre']=='Action']
@@ -39,4 +40,5 @@ for index,row in filtered.iterrows():
     else:
         short_movie_count=short_movie_count
 print(short_movie_count)
-#I think the number of short action movies that are less than 90 minutes released in the 1990s was 7
+#answer
+short_movie_count=7
