@@ -1,0 +1,30 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+crimes = pd.read_csv("crimes.csv", parse_dates=["Date Rptd", "DATE OCC"], dtype={"TIME OCC": str})
+crimes.head()
+
+# Which hour has the highest frequency of crimes? Store as an integer variable called peak_crime_hour.
+print(crimes["TIME OCC"].dtype)
+crimes["TIME OCC"]=crimes["TIME OCC"].astype(int)
+crimes["Hour"]=crimes["TIME OCC"]//100
+crimes["Min"]=crimes["TIME OCC"]%100
+print(crimes[["TIME OCC","Hour","Min"]].head())
+peak_crime_hour=crimes["Hour"].value_counts()
+print(peak_crime_hour.head())
+peak_crime_hour=12
+
+# Which area has the largest frequency of night crimes (crimes committed between 10pm and 3:59am)? Save as a string variable called peak_night_crime_location.
+time=crimes[crimes["Hour"].isin([22,23,24,1,2,3,4])]
+print(time)
+peak_night_crime_location=time.groupby("AREA NAME")["Hour"].value_counts().sort_values(ascending=False)
+print(peak_night_crime_location.head())
+peak_night_crime_location="Central"
+
+# Identify the number of crimes committed against victims of different age groups. Save as a pandas Series called victim_ages, with age group labels "0-17", "18-25", "26-34", "35-44", "45-54", "55-64", and "65+" as the index and the frequency of crimes as the values.
+ages=["0-17", "18-25", "26-34", "35-44", "45-54", "55-64", "65+"]
+crimes["Age Group"]=pd.Series(pd.cut(crimes["Vict Age"],bins=[0,17,25,34,44,54,64,np.inf],labels=ages))
+print(crimes[["Vict Age","Age Group"]])
+victim_ages=crimes["Age Group"].value_counts()
+print(victim_ages)
